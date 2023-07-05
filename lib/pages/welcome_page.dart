@@ -17,6 +17,13 @@ class _WelcomePageState extends State<WelcomePage> {
     "welcome-two.png",
     "welcome-three.png",
   ];
+  List text = ["Trips", "Trips 2", "Trips 3,"];
+  List text2 = ["Mountain", "Mountain 2", "Mountain 3"];
+  List text3 = [
+    "Mountain hikes gives you an incredible sense of Freedom along with endurance test",
+    "Mountain hikes gives you an incredible sense of Freedom along with endurance test 2",
+    "Mountain hikes gives you an incredible sense of Freedom along with endurance test 3",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,19 +50,15 @@ class _WelcomePageState extends State<WelcomePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const AppLargeText(text: 'Trips'),
-                      AppText(
-                        text: "Mountain",
-                        size: 30,
-                        color: Colors.black54,
-                      ),
+                      AppLargeText(text: text[index]),
+                      AppText(text: text2[index], size: 30),
+                      const SizedBox(height: 20),
                       Container(
                         width: 250,
                         child: AppText(
                           color: AppColors.textColor2,
+                          text: text3[index],
                           size: 16,
-                          text:
-                              "Mountain hikes gives you an incredible sense of Freedom along with endurance test",
                         ),
                       )
                     ],
