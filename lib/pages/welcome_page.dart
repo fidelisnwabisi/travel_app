@@ -53,7 +53,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AppLargeText(text: text[index]),
+                      AppLargeText(text: text[index], size: 30),
                       AppText(text: text2[index], size: 30),
                       const SizedBox(height: 20),
                       Container(

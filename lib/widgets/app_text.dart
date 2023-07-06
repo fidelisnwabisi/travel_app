@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class AppText extends StatelessWidget {
-  double? size = 14;
+  double? size;
   final String text;
   Color? color = Colors.black54;
 

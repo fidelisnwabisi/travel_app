@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
+import 'package:travel_app/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,9 +20,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Menu text
             Container(
-              padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 children: [
                   const Icon(Icons.menu, size: 30, color: Colors.black54),
@@ -37,15 +37,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 15),
             // Discover Text
             Container(
               margin: const EdgeInsets.only(left: 20),
-              child: const AppLargeText(
-                text: "Discover",
-              ),
+              child: AppLargeText(text: "Discover", size: 30),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 15),
             // TabBar
             Container(
               child: Align(
@@ -69,14 +67,77 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             Container(
+              padding: const EdgeInsets.only(left: 20),
               height: 300,
               width: double.maxFinite,
-              child: TabBarView(controller: _tabController, children: const [
-                Text("Hi"),
-                Text("There"),
-                Text("Bye"),
-              ]),
-            )
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  ListView.builder(
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        margin: const EdgeInsets.only(right: 20, top: 10),
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image: DecorationImage(
+                              image: AssetImage("img/mountain.jpeg"),
+                              fit: BoxFit.cover),
+                        ),
+                      );
+                    },
+                  ),
+                  Text("There"),
+                  Text("Bye"),
+                ],
+              ),
+            ),
+            const SizedBox(height: 15),
+            Container(
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppLargeText(text: "Explore More", size: 20),
+                  AppText(
+                    text: "See All",
+                    color: AppColors.textColor1,
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(height: 15),
+            Container(
+              height: 120,
+              width: double.maxFinite,
+              margin: const EdgeInsets.only(left: 20),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                itemBuilder: (_, index) {
+                  return Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(right: 20),
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image: DecorationImage(
+                              image: AssetImage("img/mountain.jpeg"),
+                              fit: BoxFit.cover),
+                        ),
+                      )
+                    ],
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
