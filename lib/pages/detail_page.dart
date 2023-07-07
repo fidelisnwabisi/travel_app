@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
+import 'package:travel_app/pages/responsive_button.dart';
 import 'package:travel_app/widgets/app_buttons.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
@@ -166,16 +167,43 @@ class _DetailPageState extends State<DetailPage> {
                         );
                       }),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     AppLargeText(
                       text: "Description",
                       color: Colors.black.withOpacity(0.8),
                       size: 20,
+                    ),
+                    const SizedBox(height: 10),
+                    AppText(
+                      text:
+                          "You must go for a travel. Travelling helps get rid of pressure. Go to the Mountains to see the nature.",
+                      color: AppColors.mainColor,
+                      maxLineSize: 2,
                     )
                   ],
                 ),
               ),
-            )
+            ),
+            Positioned(
+                bottom: 10,
+                left: 20,
+                right: 20,
+                child: Row(
+                  children: [
+                    AppButtons(
+                      size: 60,
+                      color: AppColors.textColor1,
+                      backgroundColor: Colors.white,
+                      borderColor: AppColors.textColor1,
+                      icon: Icons.favorite_border,
+                      isIcon: true,
+                    ),
+                    const SizedBox(width: 15),
+                    ResponsiveButton(
+                      isResponsive: true,
+                    )
+                  ],
+                ))
           ],
         ),
       ),
