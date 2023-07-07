@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/misc/colors.dart';
+import 'package:travel_app/widgets/app_buttons.dart';
 import 'package:travel_app/widgets/app_large_text.dart';
 import 'package:travel_app/widgets/app_text.dart';
 
@@ -139,12 +140,17 @@ class _DetailPageState extends State<DetailPage> {
                     Wrap(
                       children: List.generate(5, (index) {
                         return Container(
-                          margin: const EdgeInsets.only(right: 4),
-                          width: 60,
-                          height: 60,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: AppColors.buttonBackground),
+                          margin: const EdgeInsets.only(right: 10),
+                          child: AppButtons(
+                            size: 50,
+                            color: Colors.red,
+                            backgroundColor: AppColors.buttonBackground,
+                            borderColor: Colors.red,
+                            // text: (index + 1).toString(),
+                            icon: Icons.favorite_border_outlined,
+
+                            isIcon: true,
+                          ),
                         );
                       }),
                     )
