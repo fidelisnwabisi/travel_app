@@ -11,6 +11,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  int gottenStar = 4;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,18 +109,44 @@ class _DetailPageState extends State<DetailPage> {
                             (index) {
                               return Icon(
                                 Icons.star,
-                                color: AppColors.starColor,
+                                color: index < gottenStar
+                                    ? AppColors.starColor
+                                    : AppColors.textColor2,
+                                size: 18,
                               );
                             },
                           ),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         AppText(
                           text: "(4.0)",
                           size: 16,
                           color: AppColors.textColor2,
                         )
                       ],
+                    ),
+                    const SizedBox(height: 25),
+                    AppLargeText(
+                      text: "People",
+                      size: 20,
+                      color: Colors.black.withOpacity(0.8),
+                    ),
+                    const SizedBox(height: 5),
+                    AppText(
+                      text: "Number of People in your group",
+                      color: AppColors.mainTextColor,
+                    ),
+                    Wrap(
+                      children: List.generate(5, (index) {
+                        return Container(
+                          margin: const EdgeInsets.only(right: 4),
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: AppColors.buttonBackground),
+                        );
+                      }),
                     )
                   ],
                 ),
