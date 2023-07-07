@@ -13,6 +13,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int gottenStar = 4;
+  int selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -137,22 +138,39 @@ class _DetailPageState extends State<DetailPage> {
                       text: "Number of People in your group",
                       color: AppColors.mainTextColor,
                     ),
+                    const SizedBox(height: 10),
                     Wrap(
                       children: List.generate(5, (index) {
-                        return Container(
-                          margin: const EdgeInsets.only(right: 10),
-                          child: AppButtons(
-                            size: 50,
-                            color: Colors.red,
-                            backgroundColor: AppColors.buttonBackground,
-                            borderColor: Colors.red,
-                            // text: (index + 1).toString(),
-                            icon: Icons.favorite_border_outlined,
-
-                            isIcon: true,
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 10),
+                            child: AppButtons(
+                              size: 50,
+                              color: selectedIndex == index
+                                  ? Colors.white
+                                  : Colors.black,
+                              backgroundColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColors.buttonBackground,
+                              borderColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColors.buttonBackground,
+                              text: (index + 1).toString(),
+                            ),
                           ),
                         );
                       }),
+                    ),
+                    const SizedBox(height: 10),
+                    AppLargeText(
+                      text: "Description",
+                      color: Colors.black.withOpacity(0.8),
+                      size: 20,
                     )
                   ],
                 ),

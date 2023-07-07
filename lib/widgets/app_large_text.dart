@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AppLargeText extends StatelessWidget {
-  double? size = 30;
+  double? size;
   final String text;
-  Color? color = Colors.black;
+  Color? color;
 
   AppLargeText({
     super.key,
-    this.size,
+    this.size = 30,
     required this.text,
-    this.color,
+    this.color = Colors.black,
   });
 
   @override
