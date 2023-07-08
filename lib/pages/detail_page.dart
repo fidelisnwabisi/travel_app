@@ -60,12 +60,12 @@ class _DetailPageState extends State<DetailPage> {
               ),
             ),
             Positioned(
-              top: 280,
+              top: 250,
               child: Container(
                 padding: const EdgeInsets.only(right: 20, left: 20, top: 30),
                 width: MediaQuery.of(context).size.width,
                 height: 500,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
@@ -167,18 +167,17 @@ class _DetailPageState extends State<DetailPage> {
                         );
                       }),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     AppLargeText(
                       text: "Description",
                       color: Colors.black.withOpacity(0.8),
                       size: 20,
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     AppText(
                       text:
                           "You must go for a travel. Travelling helps get rid of pressure. Go to the Mountains to see the nature.",
                       color: AppColors.mainColor,
-                      maxLineSize: 2,
                     )
                   ],
                 ),
