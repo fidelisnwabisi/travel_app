@@ -23,6 +23,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubits, CubitStates>(
       builder: ((context, state) {
+        DetailState detail = state as DetailState;
         return Scaffold(
           body: Container(
             width: double.maxFinite,
@@ -35,9 +36,11 @@ class _DetailPageState extends State<DetailPage> {
                   child: Container(
                     width: double.maxFinite,
                     height: 350,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("img/mountain.jpeg"),
+                        image: NetworkImage(
+                            "http://mark.bslmeiyu.com/uploads/" +
+                                detail.place.img),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -87,11 +90,11 @@ class _DetailPageState extends State<DetailPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             AppLargeText(
-                                text: "Yosemite",
+                                text: detail.place.name,
                                 size: 30,
                                 color: Colors.black.withOpacity(0.8)),
                             AppLargeText(
-                                text: "\$ 250",
+                                text: "\$" + detail.place.price.toString(),
                                 size: 30,
                                 color: AppColors.mainColor),
                           ],
@@ -106,7 +109,7 @@ class _DetailPageState extends State<DetailPage> {
                             ),
                             const SizedBox(width: 5),
                             AppText(
-                              text: "USA, California",
+                              text: detail.place.location,
                               color: AppColors.textColor1,
                             )
                           ],
@@ -120,7 +123,7 @@ class _DetailPageState extends State<DetailPage> {
                                 (index) {
                                   return Icon(
                                     Icons.star,
-                                    color: index < gottenStar
+                                    color: index < detail.place.stars
                                         ? AppColors.starColor
                                         : AppColors.textColor2,
                                     size: 18,
@@ -130,7 +133,7 @@ class _DetailPageState extends State<DetailPage> {
                             ),
                             const SizedBox(width: 10),
                             AppText(
-                              text: "(4.0)",
+                              text: "(5.0)", //detail.place.stars.toString(),
                               size: 16,
                               color: AppColors.textColor2,
                             )
@@ -183,8 +186,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                         const SizedBox(height: 20),
                         AppText(
-                          text:
-                              "You must go for a travel. Travelling helps get rid of pressure. Go to the Mountains to see the nature.",
+                          text: detail.place.description,
                           color: AppColors.mainColor,
                         )
                       ],
