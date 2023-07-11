@@ -20,6 +20,4 @@ samples, guidance on mobile development, and a full API reference.
 
 [Flutter Master Class Travel App | Flutter 3.3.3 for Beginners to Advanced | iOS & Android Cubit](https://www.youtube.com/watch?v=x4DydJKVvQk)
 
-# Time Stamp
-03:40:30
-
+# Done
